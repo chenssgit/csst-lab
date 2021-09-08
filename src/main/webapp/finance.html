@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jqueryui.js"></script>
+	<script type="text/javascript" src="js/date.format.js"></script>
+	<script type="text/javascript" src="finance.js"></script>
+</head>
+	<body>
+		<table align=center border=0>
+			<tr><td>
+				<table border=0 align=center><tr>
+					<td id="main" width=800 align=center>
+						<textarea cols=90 rows=2 id="where"></textarea>
+						<br><div id="inputf" width="100%" style="height:70px" >
+							<table>
+								<hr><td>from</td><td>to</td><td>amount</td><td>comments</td><td>issueDate</td><td>tradeDate</td><td>cur</td></hr>
+								<tr>
+									<td id=iaa><input /><input type="hidden" class="i"/></td>
+									<td id=ibb><input /><input type="hidden" class="i"/></td>
+									<td><input class="i"/></td>
+									<td><input class="i"/></td>
+									<td><input class="i" id="inputIssueDate" /></td>
+									<td><input class="i" id="inputTradeDate" /></td>
+									<td><input class="i"/></td>
+								</tr>
+							</table>
+						</div>
+						<br><div id="mf" width="100%" style="height:500px;overflow:auto" >content</div>
+					</td>
+					<td width=100>
+						finance <br>system<br>支持中文版
+						<input type=button value="input" id=bi /></br>
+						<input type=button value="R-monthly" id=brm /></br>
+						<input type=button value="R-category" id=brc /></br>
+						<input type=button value="R-balance" id=brb />
+						<br>copyleft css
+					</td>
+				</tr></table>
+			</td></tr>
+			<tr><table><td id=debug /><td id=mode>cmd</td></table></tr>
+		</table>
+	</body>
+</html>
+
