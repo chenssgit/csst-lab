@@ -1,0 +1,29 @@
+{
+  "friend": [
+    {
+      "name": "博客",
+      "url": "http://buhuibaidu.me",
+      "description": "buhuibaidu.me"
+    },
+    {
+      "name": "V2EX",
+      "url": "http://v2ex.com/",
+      "description": "v2ex.com"
+    },
+    {
+      "name": "GITHUB",
+      "url": "https://github.com/",
+      "description": "同性交友"
+    },
+    {
+      "name": "STACKOVERFLOW",
+      "url": "http://stackoverflow.com/",
+      "description": "stackoverflow.com"
+    },
+    {
+      "name": "SEGMENTFAULT",
+      "url": "http://segmentfault.com/",
+      "description": "segmentfault.com"
+    }
+  ]
+}
