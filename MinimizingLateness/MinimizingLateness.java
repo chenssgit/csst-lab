@@ -24,7 +24,7 @@ public class MinimizingLateness {
 
     BufferedReader in = null;
     try{
-      new BufferedReader(new FileReader("MinimizingLateness/lateness_data.txt"));
+      in = new BufferedReader(new FileReader("MinimizingLateness/lateness_data.txt"));
       String ch = in.readLine();
       if (ch == null || ch.isEmpty()) {
         in.close();
