@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +31,7 @@ public class FUtils {
 			sqls.add("delete from subtran where id="+ss[2]);
 			if(!ss[1].startsWith("m")) return;
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+			sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 			Date d=sdf.parse(ss[3]);
 			Calendar c=Calendar.getInstance();
 			

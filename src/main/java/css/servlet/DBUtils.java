@@ -69,6 +69,15 @@ public class DBUtils {
 		
 	}
 	
+  private static void closeConn(Connection conn, Statement stmt){
+    try {
+      if(conn!=null) conn.close();
+      if(stmt!=null) stmt.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+  
 	public static String query(String query,String type) {
 		System.out.println("DBUtils:query:"+query);
 		Connection conn = null;
@@ -83,12 +92,7 @@ public class DBUtils {
 			e.printStackTrace();
 			return "error:"+e.getMessage();
 		} finally {
-			try {
-				if(conn!=null) conn.close();
-				if(stmt!=null) stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+      closeConn(conn,stmt);
 		}
 	}
 
@@ -118,12 +122,7 @@ public class DBUtils {
 			e.printStackTrace();
 			return null;
 		} finally {
-			try {
-				if(conn!=null) conn.close();
-				if(stmt!=null) stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeConn(conn,stmt);
 		}
 	}
 	
@@ -140,17 +139,7 @@ public class DBUtils {
 
 	public static String update(String sql) {
 		String[] strs=sql.split(";");
-		List<String> sqls=new ArrayList<String>();
-		int n=strs.length;
-		for(int  i=0;i<n;i++){
-//			if(sqls[i].equals("")) break;
-//			String[] s=sqls[i].split(":");
-//			sqls[i]="update transaction set "+s[0]+" = '"+s[1]+"' where id="+s[2];
-			if(strs[i].startsWith("ftype")){
-				FUtils.ftype(strs[i],sqls);
-			}else sqls.add(strs[i]);
-		}
-		
+		List<String> sqls=genSqls(strs);
 		Connection conn = null;
 		Statement stmt = null;
 		try {
@@ -166,16 +155,21 @@ public class DBUtils {
 			e.printStackTrace();
 			return "error:"+e.getMessage();
 		} finally {
-			try {
-				if(conn!=null) conn.close();
-				if(stmt!=null) stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeConn(conn,stmt);
 		}
 	
 	}
 
+  private static List<String> genSqls(String[] strs){
+    List<String> sqls=new ArrayList<String>();
+		int n=strs.length;
+		for(int  i=0;i<n;i++){
+			if(strs[i].startsWith("ftype")){
+				FUtils.ftype(strs[i],sqls);
+			}else sqls.add(strs[i]);
+		}
+    return sqls;
+  }
 
 	public static String insert(String sql) {
 		System.out.println("insert sql:"+sql);
@@ -190,12 +184,7 @@ public class DBUtils {
 			e.printStackTrace();
 			return "error:"+e.getMessage();
 		} finally {
-			try {
-				if(conn!=null) conn.close();
-				if(stmt!=null) stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeConn(conn,stmt);
 		}
 	
 	}
